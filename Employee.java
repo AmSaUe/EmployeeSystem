@@ -1,28 +1,29 @@
 package employee;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 
 public abstract class Employee {
-	
+
 	private String firstName;
 	private String lastName;
 	private String eMail;
 	private String address;
 	private String phone;
 	private String bankName;
-	private String category; //do we need it?
-	private Enum gender;
-	private String dateOfBirth;
+	private String category;
+	private GenderType gender;
+	private LocalDate dateOfBirth;
 	private int employeeID;
 	private String accountNumber;
 	private int salary;
-//	private int age;  how calculate age?
+	private int age;
 	static ArrayList<Employee> employee = new ArrayList<>();
-	
-	
+
 	public Employee(String firstName, String lastName, String eMail, String address, String phone, String bankName,
-			String category, Enum gender, String dateOfBirth, int employeeID, String accountNumber, int salary) {
+			String category, GenderType gender, int yearOfBirth, int monthOfBirth, int dayOfBirth, int employeeID,
+			String accountNumber, int salary) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.eMail = eMail;
@@ -31,16 +32,23 @@ public abstract class Employee {
 		this.bankName = bankName;
 		this.category = category;
 		this.gender = gender;
-		this.dateOfBirth = dateOfBirth;
 		this.employeeID = employeeID;
 		this.accountNumber = accountNumber;
 		this.salary = salary;
+
+		this.dateOfBirth = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
+		LocalDate today = LocalDate.now();
+		Period p = Period.between(dateOfBirth, today);
+		this.age = p.getYears();
+
 	}
-	
+
 	public static void addEmployee(Employee e) {
 		employee.add(e);
 	}
 	
+	public abstract double calculateBonus();
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -113,18 +121,12 @@ public abstract class Employee {
 		return gender;
 	}
 
-	public String getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
 	public int getEmployeeID() {
 		return employeeID;
 	}
-	
-	
-	
-
-	
-	
 
 }
