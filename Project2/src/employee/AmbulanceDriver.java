@@ -9,6 +9,7 @@ public class AmbulanceDriver extends Employee {
 		super(firstName, lastName, eMail, address, phone, bankName, category, gender, yearOfBirth, monthOfBirth,
 				dayOfBirth, employeeID, accountNumber, salary);
 		this.numberOfShifts = numberOfShifts;
+		Employee.addEmployee(this);
 	}
 //TEST
 	@Override

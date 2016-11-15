@@ -11,6 +11,7 @@ public class Housekeeper extends Employee{
 				dayOfBirth, employeeID, accountNumber, salary);
 		this.bonusBase = bonusBase;
 		this.workingMonths = workingMonths;
+		Employee.addEmployee(this);
 	}
 	
 	
