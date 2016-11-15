@@ -31,6 +31,8 @@ public class Doctor extends Employee {
 		} else if (yearsOfExperience>=21) {
 			bonus = getSalary() * 2.5;
 		} 
+		
+		System.out.println();
 		return bonus;
 	}
 
