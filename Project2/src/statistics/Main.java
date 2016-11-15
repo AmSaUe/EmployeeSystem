@@ -34,19 +34,19 @@ public class Main {
 				Object[] possibleValues1 = { "Register", "Delete", "Update", "Search", "Display", "back to the previous menu"};
                 Object selectedValue1 = JOptionPane.showInputDialog(null, "Please Choose one from the drop down list: ", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues1, possibleValues1[0]);
                 	
-                	if ("Register".equals((String)selectedValue)){ //Register
+                	if ("Register".equals((String)selectedValue1)){ //Register
                 		System.out.println("Register is called!");
                 	}
-                	else if("Delete".equals((String)selectedValue)){//Delete
+                	else if("Delete".equals((String)selectedValue1)){//Delete
                 		System.out.println("Delete is called!");
                 	}
-                	else if ("Update".equals((String)selectedValue)){//Update
+                	else if ("Update".equals((String)selectedValue1)){//Update
                 		System.out.println("Update is called!");
                 	}
-                	else if ("Search".equals((String)selectedValue)){//Search
+                	else if ("Search".equals((String)selectedValue1)){//Search
                 		System.out.println("Search is called!");
                 	}
-                	else if ("Display".equals((String)selectedValue)) {//Display
+                	else if ("Display".equals((String)selectedValue1)) {//Display
                 		System.out.println("Display is called!");
                 	}
                 	else //Previous menu
@@ -60,22 +60,22 @@ public class Main {
             	Object[] possibleValues2 = { "Average wage of the company", "Maximum salary in the company", "Minimum salary in the company", "Total Bonus", "Women employee Percentage of the company", "Men employee Percentage of the company", "Back to the previous menu"};
                 Object selectedValue2 = JOptionPane.showInputDialog(null, "Please Choose one from the drop down list: ", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues2, possibleValues2[0]);
                
-                	if ("Average Wage of the Company".equals((String)selectedValue)){ //Average Wage of the Company
+                	if ("Average Wage of the Company".equals((String)selectedValue2)){ //Average Wage of the Company
                 		System.out.println("Ave!");
                 	}
-                	else if("Maximum salary in the company".equals((String)selectedValue)){ //Maximum salary in the company
+                	else if("Maximum salary in the company".equals((String)selectedValue2)){ //Maximum salary in the company
                 		System.out.println("Max!");
                 	}
-                	else if ("Minimum salary in the company".equals((String)selectedValue)){//Minimum salary in the company
+                	else if ("Minimum salary in the company".equals((String)selectedValue2)){//Minimum salary in the company
                 		System.out.println("Min!");
                 	}
-                	else if ("Total Bonus".equals((String)selectedValue)){//Total Bonus
+                	else if ("Total Bonus".equals((String)selectedValue2)){//Total Bonus
                 		System.out.println("Bonus!");
                 	}
-                	else if("Women employee Percentage of the company".equals((String)selectedValue)){//Women employee Percentage of the company
+                	else if("Women employee Percentage of the company".equals((String)selectedValue2)){//Women employee Percentage of the company
                 		System.out.println("Women");
                 	}
-            		else if ("Men employee Percentage of the company".equals((String)selectedValue)){//Men employee Percentage of the company
+            		else if ("Men employee Percentage of the company".equals((String)selectedValue2)){//Men employee Percentage of the company
             			System.out.println("Men!");
                 	}
                 	else 
