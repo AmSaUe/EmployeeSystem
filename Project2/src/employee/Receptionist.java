@@ -6,12 +6,13 @@ public class Receptionist extends Employee{
 
 	
 		
+
 		public Receptionist(String firstName, String lastName, String eMail, String address, String phone,
-				String bankName, String category, GenderType gender, String dateOfBirth, int employeeID, String accountNumber,
-				int salary, int NumberOfCalls) {
-			super(firstName, lastName, eMail, address, phone, bankName, category, gender, dateOfBirth, employeeID, accountNumber,
-					salary);
-			
+				String bankName, String category, GenderType gender, int yearOfBirth, int monthOfBirth, int dayOfBirth,
+				int employeeID, String accountNumber, int salary, int NumberOfCalls) {
+			super(firstName, lastName, eMail, address, phone, bankName, category, gender, yearOfBirth, monthOfBirth, dayOfBirth,
+					employeeID, accountNumber, salary);
+
 			this.NumberOfCalls = NumberOfCalls;
 			Employee.addEmployee(this);
 		}
@@ -24,6 +25,10 @@ public class Receptionist extends Employee{
 			NumberOfCalls = numberOfCalls;
 		}
 		
-		
+		@Override
+		public double calculateBonus() {
+			int bonus = NumberOfCalls*2;
+			return bonus;
+		}
 		
 }

@@ -46,8 +46,8 @@ public abstract class Employee {
 	public static void addEmployee(Employee e) {
 		employee.add(e);
 	}
-	
-	public abstract double calculateBonus();
+
+	public abstract double calculateBonus();//Bonus calculation
 
 	public String getFirstName() {
 		return firstName;
@@ -139,7 +139,6 @@ public abstract class Employee {
 		return result;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", eMail=" + eMail + ", address="
@@ -147,7 +146,6 @@ public abstract class Employee {
 				+ gender + ", dateOfBirth=" + dateOfBirth + ", employeeID=" + employeeID + ", accountNumber="
 				+ accountNumber + ", salary=" + salary + "]";
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -172,6 +170,5 @@ public abstract class Employee {
 			return false;
 		return true;
 	}
-	
-	
+
 }
