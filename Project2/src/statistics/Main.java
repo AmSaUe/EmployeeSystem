@@ -80,7 +80,7 @@ public class Main {
                 	}
                 	else 
                 	{
-                		System.out.println("Previous menu!");
+                		System.out.println("Previous menu!:D");
                 	}
                 	
 				}
