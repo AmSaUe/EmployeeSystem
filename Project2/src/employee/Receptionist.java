@@ -52,7 +52,7 @@ public class Receptionist extends Employee{
 		      JTextField Field10 = new JTextField(5);//bankName
 		      JTextField Field11 = new JTextField(5);//accountNumber
 		      JTextField Field12 = new JTextField(5);//category
-		     
+		      JTextField Field7 = new JTextField(5);//phone
 		      
 		      JPanel myPanel = new JPanel();
 		      myPanel.setLayout(new GridLayout(11,1));
