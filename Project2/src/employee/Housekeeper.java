@@ -1,5 +1,7 @@
 package employee;
 
+import utilities.GenderType;
+
 public class Housekeeper extends Employee{
 
 	private int bonusBase = 1000;
@@ -19,7 +21,7 @@ public class Housekeeper extends Employee{
 	@Override
 	public double calculateBonus() {
 		double bonus = (getBonusBase() * getWorkingMonths()) ;
-		return 0;
+		return bonus;
 	}
 	
 	

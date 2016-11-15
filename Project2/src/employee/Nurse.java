@@ -1,5 +1,8 @@
 package employee;
 
+import utilities.GenderType;
+import utilities.Qualification;
+
 public class Nurse extends Employee {
 	
 	private Qualification qualification;
@@ -10,6 +13,7 @@ public class Nurse extends Employee {
 		super(firstName, lastName, eMail, address, phone, bankName, category, gender, yearOfBirth, monthOfBirth,
 				dayOfBirth, employeeID, accountNumber, salary);
 		this.qualification = qualification;
+		Employee.addEmployee(this);
 	}
 	
 	@Override

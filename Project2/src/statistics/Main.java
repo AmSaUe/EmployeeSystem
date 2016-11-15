@@ -38,8 +38,7 @@ public class Main {
 										case "Researcher":
 											break;
 										case "Receptionist":
-											Receptionist newReceptionist = Receptionist.addReceptionist();
-											Employee.addEmployee(newReceptionist);
+											Receptionist newReceptionist = Receptionist.createReceptionist();
 											break;
 										case "Ambulance Driver":
 											break;

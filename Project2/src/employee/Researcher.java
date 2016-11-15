@@ -1,5 +1,7 @@
 package employee;
 
+import utilities.GenderType;
+
 public class Researcher extends Employee {
 
 	private int NumberOfProjects;

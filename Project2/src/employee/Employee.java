@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
+import utilities.GenderType;
+
 public abstract class Employee {
 
 	private String firstName;

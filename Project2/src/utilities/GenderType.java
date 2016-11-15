@@ -1,4 +1,4 @@
-package employee;
+package utilities;
 
 public enum GenderType {
 	

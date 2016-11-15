@@ -1,5 +1,8 @@
 package employee;
 
+import utilities.GenderType;
+import utilities.Specialization;
+
 public class Doctor extends Employee {
 
 	private Specialization specialization;

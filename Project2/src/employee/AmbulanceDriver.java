@@ -1,5 +1,7 @@
 package employee;
 
+import utilities.GenderType;
+
 public class AmbulanceDriver extends Employee {
 	private int numberOfShifts;
 
