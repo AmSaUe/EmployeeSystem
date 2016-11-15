@@ -3,28 +3,14 @@ package statistics;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import employee.Employee;
+import employee.Receptionist;
+
 public class Main {
 
 	public static void main(String[] args) {
 		  
-		  /*JTextField Field1 = new JTextField(5);
-	      JTextField Field2 = new JTextField(5);
-	      JTextField Field3 = new JTextField(5);
-	      JTextField Field4 = new JTextField(5);
-	      JTextField Field4 = new JTextField(5);
-	      JTextField Field4 = new JTextField(5);
-	      JTextField Field4 = new JTextField(5);
-	      JPanel myPanel = new JPanel();
-	      myPanel.setLayout(new GridLayout(2,2));
-	      myPanel.add(new JLabel("input 1:"));
-	      myPanel.add(Field1);
-	      myPanel.add(new JLabel("input 2:"));
-	      myPanel.add(Field2);
-	      myPanel.add(new JLabel("input 3:"));
-	      myPanel.add(Field3);
-	      myPanel.add(new JLabel("input 4:"));
-	      myPanel.add(Field4);*/
-	      
+
 	      
 		do {
 				Object[] possibleValues = { "Employee Management", "Employee Statistics", "Exit"};
@@ -43,7 +29,7 @@ public class Main {
 									Object[] possibleValues3 = {"Doctor", "Nurse", "Researcher", "Receptionist", "Ambulance Driver", "Housekeeper"};
 									Object selectedValue3 = JOptionPane.showInputDialog(null, "In which category do you want to add the new employee?", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues3, possibleValues3[0]);
 										
-										switch ((String)selectedValue3){//What kind of employee
+										switch ((String)selectedValue3){//What kind of employee?
 										
 										case "Doctor":
 											break;
@@ -52,6 +38,8 @@ public class Main {
 										case "Researcher":
 											break;
 										case "Receptionist":
+											Receptionist newReceptionist = Receptionist.addReceptionist();
+											Employee.addEmployee(newReceptionist);
 											break;
 										case "Ambulance Driver":
 											break;
