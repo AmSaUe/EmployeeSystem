@@ -17,7 +17,8 @@ public class Nurse extends Employee {
 
 	public Nurse(String firstName, String lastName, String eMail, String address, String phone, String bankName,
 			String category, GenderType gender, int yearOfBirth, int monthOfBirth, int dayOfBirth, int employeeID,
-			String accountNumber, int salary, Qualification qualification) {
+			String accountNumber, int salary, Qualification qualification)
+	{
 		super(firstName, lastName, eMail, address, phone, bankName, category, gender, yearOfBirth, monthOfBirth,
 				dayOfBirth, employeeID, accountNumber, salary);
 		this.qualification = qualification;
