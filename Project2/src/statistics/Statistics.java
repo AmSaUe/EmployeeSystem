@@ -1,5 +1,7 @@
 package statistics;
 
+import javax.swing.JOptionPane;
+
 import employee.AmbulanceDriver;
 import employee.Doctor;
 import employee.Employee;
@@ -18,7 +20,7 @@ public class Statistics {
 			totalSalary += e.getSalary();
 			averageWage = totalSalary / Employee.employee.size();
 		}
-		System.out.println("The average wage of the hospial is " + averageWage);
+		JOptionPane.showMessageDialog(null, "The average wage of the hospial is " + averageWage);
 	}
 
 	public static void highestWage() {
@@ -30,7 +32,7 @@ public class Statistics {
 				highestWage = e.getSalary();
 			}
 		}
-		System.out.println("The highest salary in the hospital is " + highestWage);
+		JOptionPane.showMessageDialog(null, "The highest salary in the hospital is " + highestWage);
 	}
 
 	public static void lowestWage() {
@@ -40,15 +42,14 @@ public class Statistics {
 				lowestWage = e.getSalary();
 			}
 		}
-		System.out.println("The lowest salary in the hospital is " + lowestWage);
-	}
+		JOptionPane.showMessageDialog(null, "The lowest salary in the hospital is " + lowestWage);	}
 
 	public static void totalBonus() {
 		double totalBonus = 0;
 		for (Employee e : Employee.employee) {
 			totalBonus += e.calculateBonus();
 		}
-		System.out.println("The total annual bonus is " + totalBonus);
+		JOptionPane.showMessageDialog(null, "The total annual bonus is " + totalBonus);
 	}
 
 	public static void femalePercentage() {
@@ -60,7 +61,8 @@ public class Statistics {
 			}
 			femalePercentage = counter * 100 / Employee.employee.size();
 		}
-		System.out.println(femalePercentage + "% of all staff at the hospital are women.");
+		JOptionPane.showMessageDialog(null, femalePercentage + "% of all staff at the hospital are women.");
+
 	}
 	
 	public static void maleByCategoryPercentage() {
@@ -110,12 +112,13 @@ public class Statistics {
 				}
 			}
 		}
-		System.out.println("Male doctors: " + maleDoctorCounter*100/doctorCounter + "%." );
-		System.out.println("Male nurses: " + maleNurseCounter*100/nurseCounter + "%." );
-		System.out.println("Male researchers: " + maleResearcherCounter*100/researcherCounter + "%." );
-		System.out.println("Male receptionists: " + maleReceptionistCounter*100/receptionistCounter + "%." );
-		System.out.println("Male ambulance drivers: " + maleAmbulanceDriverCounter*100/ambulanceDriverCounter + "%." );
-		System.out.println("Male housekeepers: " + maleHousekeeperCounter*100/housekeeperCounter + "%." );
+		JOptionPane.showMessageDialog(null, "Male doctors: " + maleDoctorCounter*100/doctorCounter + "%. \n"+
+		"Male nurses: "+ maleNurseCounter*100/nurseCounter + "%. \n" +
+        "Male researchers: " + maleResearcherCounter*100/researcherCounter + "%. \n" +
+		"Male receptionists: " + maleReceptionistCounter*100/receptionistCounter + "%. \n" +
+		"Male ambulance drivers: " + maleAmbulanceDriverCounter*100/ambulanceDriverCounter + "%. \n" +
+		"Male housekeepers: " + maleHousekeeperCounter*100/housekeeperCounter + "%.");
+
 	}
 
 }

@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import models.Book;
 import utilities.GenderType;
 
 public abstract class Employee {
@@ -21,7 +24,7 @@ public abstract class Employee {
 	private String accountNumber;
 	private int salary;
 	private int age;
-	static ArrayList<Employee> employee = new ArrayList<>();
+	public static ArrayList<Employee> employee = new ArrayList<>();
 
 	public Employee(String firstName, String lastName, String eMail, String address, String phone, String bankName,
 			String category, GenderType gender, int yearOfBirth, int monthOfBirth, int dayOfBirth, int employeeID,
@@ -49,7 +52,61 @@ public abstract class Employee {
 		employee.add(e);
 	}
 
-	public abstract double calculateBonus();//Bonus calculation
+		public static Employee findByID() {
+		String input = JOptionPane.showInputDialog("Enter the ID of the employee:");
+		int num = Integer.parseInt(input);
+		Employee employeeTemp = null;
+
+		for (Employee j : employee) {
+			if (num == j.employeeID) {
+				employeeTemp = j;
+			}
+		}
+		return employeeTemp;
+
+	}
+
+	public static Employee findEmployee() {
+		String input = JOptionPane.showInputDialog("Enter the first name of the employee:");
+		String input1 = JOptionPane.showInputDialog("Enter the last name of the employee:");
+		Employee employeeTemp = null;
+
+		for (Employee j : employee) {
+			if (j.firstName.equals(input) && j.lastName.equals(input1)) {
+				employeeTemp = j;
+			}
+		}
+		return employeeTemp;
+	}
+
+	public static void displayEmployee(Employee e) {
+		JOptionPane.showMessageDialog(null, e.toString());
+	}
+
+	/*
+	 * public static int findIndex(){ String input =
+	 * JOptionPane.showInputDialog("Enter the first name of the employee:");
+	 * String input1 =
+	 * JOptionPane.showInputDialog("Enter the last name of the employee:"); int
+	 * indexOfEmployee = 0;
+	 * 
+	 * for (Employee j: employee){ if (j.firstName.equals(input) &&
+	 * j.lastName.equals(input1)){ indexOfEmployee = employee.indexOf(j) ; } }
+	 * return indexOfEmployee; }
+	 */
+
+	public static void delete(Employee foundEmployee) {
+		if (foundEmployee == null) {
+			JOptionPane.showMessageDialog(null, "This Employee does not exist in the database!");
+		}
+		boolean b = employee.remove(foundEmployee);
+		if (b == true) {
+			JOptionPane.showMessageDialog(null, foundEmployee + " was deleted successfuly!");
+		}
+
+	}
+
+	public abstract double calculateBonus();// Bonus calculation
 
 	public String getFirstName() {
 		return firstName;
@@ -143,10 +200,38 @@ public abstract class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [firstName=" + firstName + ", lastName=" + lastName + ", eMail=" + eMail + ", address="
-				+ address + ", phone=" + phone + ", bankName=" + bankName + ", category=" + category + ", gender="
-				+ gender + ", dateOfBirth=" + dateOfBirth + ", employeeID=" + employeeID + ", accountNumber="
-				+ accountNumber + ", salary=" + salary + "]";
+
+		return "Name " + firstName + lastName + "eMail=" + eMail + ", address=" + address + ", phone=" + phone
+				+ ", bankName=" + bankName + ", category=" + category + ", gender=" + gender + ", dateOfBirth="
+				+ dateOfBirth + ", employeeID=" + employeeID + ", accountNumber=" + accountNumber + ", salary=" + salary
+				+ "\n";
+
+		public void printHeader() {
+			System.out.println("ID Name   Title                 Author                ISBN            ");
+		}
+				public void printBook(Book book) {
+				
+			System.out.println(fixLengthString(book.getID(), 6) + "  " + fixLengthString(book.getTitle(),20) 
+			+ "  " + fixLengthString(book.getAuthor(), 20) + "  " +
+					fixLengthString(book.getIsbn(), 15));
+		}
+				private String fixLengthString(String start, int length) {
+			// TODO fix string padding problem
+			if (start.length() >= length) {
+				return start.substring(0, length);
+							}
+			
+			else {
+				while (start.length() < length) {
+					start += " ";
+				}
+				return start;
+							}
+		}		
+		private String fixLengthString(int start, int length) {
+			String startString = String.valueOf(start);
+			return fixLengthString(startString, length);
+		}
 	}
 
 	@Override

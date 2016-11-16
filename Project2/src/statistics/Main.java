@@ -1,15 +1,29 @@
 package statistics;
 
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import employee.AmbulanceDriver;
+import employee.Doctor;
 import employee.Employee;
+import employee.Housekeeper;
+import employee.Nurse;
 import employee.Receptionist;
+import employee.Researcher;
+import utilities.GenderType;
+import utilities.Specialization;
 
 public class Main {
 
 	public static void main(String[] args) {
 		  
+		Doctor d1 = new Doctor("Clas", "Olsson", "abc@mail.com", "Liljeholmen", "1230456", "Nordea", "doctor", GenderType.MALE, 1958,01,27,1,"35467", 45000, Specialization.ALLERGIST, 5);
+		Doctor d2 = new Doctor("Arthur", "Svensson", "abc@mail.com", "Liljeholmen", "1230456", "Nordea", "doctor", GenderType.MALE, 1958,01,27,1,"35467", 35000, Specialization.DENTIST, 15);
+		Doctor d3 = new Doctor("Anna", "Eriksson", "abc@mail.com", "Liljeholmen", "1230456", "Nordea", "doctor",  GenderType.FEMALE, 1958,01,27,1,"35467", 25000, Specialization.NEUROLOGIST, 25);
+//		Doctor d4 = new Doctor("Pelle", "Davidsson", "abc@mail.com", "Liljeholmen", "1230456", "Nordea", Category.DOCTOR, GenderType.MALE, 1958,01,27,1,"35467", 54200, Specialization.ALLERGIST, 4);
+//		Doctor d5 = new Doctor("Sara", "Ek", "abc@mail.com", "Liljeholmen", "1230456", "Nordea", Category.DOCTOR, GenderType.FEMALE, 1958,01,27,1,"35467", 39560, Specialization.RHEUMATOLOGIST, 11);
 
 	      
 		do {
@@ -32,53 +46,95 @@ public class Main {
 										switch ((String)selectedValue3){//What kind of employee?
 										
 										case "Doctor":
+											
+											Doctor.createEmployee();
 											break;
 										case "Nurse":
+											Nurse.createEmployee();
 											break;
 										case "Researcher":
+											Researcher.createEmployee();
 											break;
 										case "Receptionist":
-											Receptionist newReceptionist = Receptionist.createReceptionist();
+											Receptionist.createEmployee();
 											break;
 										case "Ambulance Driver":
+											AmbulanceDriver.createEmployee();
 											break;
-										default: 
+										case "Housekeeper": 
+											Housekeeper.createEmployee();
 											break;
+											
 										}
-										
-									break;
+										continue;
+									
 								case "Delete":
-									System.out.println("Delete is called!");//Delete
+									Employee.delete(Employee.findEmployee());
 									break;
 								case "Update":
-									Object[] possibleValues4 = {"1", "2", "3", "4", "5", "6"};
+							
+									Employee e = Employee.findEmployee();
+									
+									Object[] possibleValues4 = {"First Name", "Last Name", "Address", "Phone Number", "Email Address", "Salary", "Bank Name", "Bank Account Number"};
 									Object selectedValue4 = JOptionPane.showInputDialog(null, "What attributes do you want to update? ", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues4, possibleValues4[0]);
 										
 										switch ((String)selectedValue4){//What kind of employee
 									
-										case "1":
+										case "First Name":
+											String input = JOptionPane.showInputDialog("Give me the new first name: ");
+											e.setFirstName(input);
 											break;
-										case "2":
+										case "Last Name":
+											String input1 = JOptionPane.showInputDialog("Give me the new last name: ");
+											e.setLastName(input1);
 											break;
-										case "3":
+										case "Address":
+											String input2 = JOptionPane.showInputDialog("Give me the new address: ");
+											e.setAddress(input2);
 											break;
-										case "4":
+										case "Phone Number":
+											String input3 = JOptionPane.showInputDialog("Give me the new phone number: ");
+											e.setPhone(input3);
 											break;
-										case "5":
+										case "Email Address":
+											String input4 = JOptionPane.showInputDialog("Give me the new email address: ");
+											e.seteMail(input4);
 											break;
-										default: 
+										case "Salary":
+											String input5 = JOptionPane.showInputDialog("Give me the new salary: ");
+											int num = Integer.parseInt(input5);
+											e.setSalary(num);
 											break;
-									}
-									break;
+										case "Bank Name":
+											String input6 = JOptionPane.showInputDialog("Give me the new bank name: ");
+											e.setBankName(input6);
+											break;
+										case "Bank Account Number":
+											String input7 = JOptionPane.showInputDialog("Give me the new account number: ");
+											e.setAccountNumber(input7);
+											break;
+												}
+										continue;
 								case "Search":
-									System.out.println("Search is called!");//Search
-									break;
+									Object[] possibleValues5 = {"By Full Name", "By ID"};
+									Object selectedValue5 = JOptionPane.showInputDialog(null, "How do you want to search for the employee?  ", "Input",JOptionPane.INFORMATION_MESSAGE, null,possibleValues5, possibleValues5[0]);
+										switch ((String)selectedValue5){
+										case "By Full Name":
+											Employee e1 = Employee.findEmployee();
+											Employee.displayEmployee(e1);
+											break;
+										case "By ID":
+											Employee e2 = Employee.findByID();
+											Employee.displayEmployee(e2);
+											break;
+											}
+										continue;
+									
 								case "Display":
-									System.out.println("Display is called!");//Display
-									break;
-								default://Main menu
-									continue;
-							}
+									String d = Employee.employee.toString();
+									JOptionPane.showMessageDialog(null, d);
+							}continue;
+
 					
             
 					case "Employee Statistics"://Employee Statistics
@@ -88,34 +144,34 @@ public class Main {
 							switch ((String)selectedValue2){
 						
 								case "Average wage of the company"://Ave
-									System.out.println("Ave");
+									Statistics.averageWage();
 									break;
 								case "Maximum salary in the company"://Max
-									System.out.println("Max");
+									Statistics.highestWage();
 									break;
 								case "Minimum salary in the company"://Min
-									System.out.println("Min");
+									Statistics.lowestWage();
 									break;
 								case "Total Bonus"://Bonus
-									System.out.println("Bonus");
+									Statistics.totalBonus();
 									break;
 								case "Women employee Percentage of the company"://Women
-									System.out.println("Women");
+									Statistics.femalePercentage();
 									break;
 								case "Men employee Percentage of the company"://Men
-									System.out.println("Men");
+									Statistics.maleByCategoryPercentage();
 									break;
-								default://Main menu
-									continue;
-							}
-							
-					default://Exit
-						JOptionPane.showMessageDialog(null, "Have a nice day!");
-						break;
+							}continue;
 				}
-		}
-		while (0 == (JOptionPane.showConfirmDialog(null, "Do you want to go back to the main menu?", "Do you want to go back to the menu?", JOptionPane.YES_NO_OPTION)));
+		
+		
+	
+
+	}while (0 == (JOptionPane.showConfirmDialog(null, "Do you want to go back to the main menu?", "Do you want to go back to the menu?", JOptionPane.YES_NO_OPTION)));
         JOptionPane.showMessageDialog(null, "Have a nice day!");
-	}
 
 }
+	}
+
+
+
