@@ -209,8 +209,9 @@ public class Doctor extends Employee {
 	    	  Doctor newDoctor = new Doctor(Field2.getText(), Field3.getText(), Field10.getText(), Field8.getText(), Field9.getText(), 
 	    			  Field13.getText(), "Doctor", genderTemp, Integer.parseInt(Field5.getText()), Integer.parseInt(Field6.getText()), 
 	    			  Integer.parseInt(Field7.getText()), Integer.parseInt(Field1.getText()), Field14.getText(), Integer.parseInt(Field12.getText()),special,Integer.parseInt(Field15.getText()));
-	      }
-			JOptionPane.showMessageDialog(null, "This new Doctor was created successfully!");
+	    	  JOptionPane.showMessageDialog(null, "This new doctor was created successfully!");
+	      } else {
+	  		JOptionPane.showMessageDialog(null, "Registration cancelled!");}
 
 	}
 	

@@ -109,8 +109,10 @@ public class AmbulanceDriver extends Employee {
 	    	  AmbulanceDriver newAmbulanceDriver = new AmbulanceDriver(Field2.getText(), Field3.getText(), Field10.getText(), Field8.getText(), Field9.getText(), 
 	    			  Field13.getText(), "Ambulance Driver", genderTemp, Integer.parseInt(Field5.getText()), Integer.parseInt(Field6.getText()), 
 	    			  Integer.parseInt(Field7.getText()), Integer.parseInt(Field1.getText()), Field14.getText(), Integer.parseInt(Field12.getText()),0);
-	      }
-			JOptionPane.showMessageDialog(null, "This new Ambulance Driver was created successfully!");
+	    	  JOptionPane.showMessageDialog(null, "This new ambulance driver was created successfully!");
+	      } else {
+	  		JOptionPane.showMessageDialog(null, "Registration cancelled!");}
+
   
 	}
 	

@@ -112,8 +112,10 @@ public class Researcher extends Employee {
 	    	  Researcher newResearcher = new Researcher(Field2.getText(), Field3.getText(), Field10.getText(), Field8.getText(), Field9.getText(), 
 	    			  Field13.getText(), "Researcher", genderTemp, Integer.parseInt(Field5.getText()), Integer.parseInt(Field6.getText()), 
 	    			  Integer.parseInt(Field7.getText()), Integer.parseInt(Field1.getText()), Field14.getText(), Integer.parseInt(Field12.getText()),0);
-	      }
-			JOptionPane.showMessageDialog(null, "This new Researcher was created successfully!");
+	    	  JOptionPane.showMessageDialog(null, "This new researcher was created successfully!");
+	      } else {
+	  		JOptionPane.showMessageDialog(null, "Registration cancelled!");}
+
  
 	}
 	
