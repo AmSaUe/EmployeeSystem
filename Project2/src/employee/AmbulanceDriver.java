@@ -21,10 +21,10 @@ public class AmbulanceDriver extends Employee {
 		this.numberOfShifts = numberOfShifts;
 		Employee.addEmployee(this);
 	}
-//TEST
+
 	@Override
 	public double calculateBonus() {
-		double bonus = numberOfShifts * getage();
+		double bonus = numberOfShifts * getAge();
 		return bonus;
 	}
 
@@ -36,11 +36,6 @@ public class AmbulanceDriver extends Employee {
 		this.numberOfShifts = numberOfShifts;
 	}
 
-	private int getage() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	public static void createEmployee(){
 		  
 		  JTextField Field1 = new JTextField(5);//employeeID

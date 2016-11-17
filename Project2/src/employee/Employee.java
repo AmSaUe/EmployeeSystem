@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-
 import utilities.GenderType;
 
 public abstract class Employee {
@@ -48,6 +47,8 @@ public abstract class Employee {
 
 	}
 
+	public abstract double calculateBonus();
+
 	public static void addEmployee(Employee e) {
 		employee.add(e);
 	}
@@ -63,10 +64,9 @@ public abstract class Employee {
 			}
 		}
 		return employeeTemp;
-
 	}
 
-	public static Employee findEmployee() {
+	public static Employee findByName() {
 		String input = JOptionPane.showInputDialog("Enter the first name of the employee:");
 		String input1 = JOptionPane.showInputDialog("Enter the last name of the employee:");
 		Employee employeeTemp = null;
@@ -80,7 +80,7 @@ public abstract class Employee {
 	}
 
 	public static void displayEmployee(Employee e) {
-		
+
 		JOptionPane.showMessageDialog(null, e.header() + e.toString());
 	}
 
@@ -94,7 +94,44 @@ public abstract class Employee {
 		}
 	}
 
-	public abstract double calculateBonus();// Bonus calculation
+	@Override
+	public String toString() {
+
+		String c = fixLengthString(employeeID, 2) + "  " + fixLengthString(firstName + " " + lastName, 19) + "  "
+				+ fixLengthString(category, 16) + "  " + fixLengthString(salary, 6) + "  " + fixLengthString(gender, 7)
+				+ "  " + fixLengthString(age, 3) + "  " + fixLengthString(address, 19) + "  "
+				+ fixLengthString(eMail, 19) + "  " + fixLengthString(phone, 10) + "  " + fixLengthString(bankName, 11)
+				+ "  " + fixLengthString(accountNumber, 11) + "  " + "\n";
+		return c;
+	}
+
+	public static String header() {
+		String a = "ID  Name                 Category          Salary Gender    Age  Address             E-mail               Phone       Bank        Account Nr  \n";
+		String b = "-------------------------------------------------------------------------------------------------------------------------------------------------\n";
+		String c = a + b;
+		return c;
+	}
+
+	private String fixLengthString(String start, int length) {
+		if (start.length() >= length) {
+			return start.substring(0, length);
+		} else {
+			while (start.length() < length) {
+				start += " ";
+			}
+			return start;
+		}
+	}
+
+	private String fixLengthString(int start, int length) {
+		String startString = String.valueOf(start);
+		return fixLengthString(startString, length);
+	}
+
+	private String fixLengthString(GenderType gender, int length) {
+		String s = gender.toString();
+		return fixLengthString(s, length);
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -176,66 +213,7 @@ public abstract class Employee {
 		return employeeID;
 	}
 
-	@Override
-	public String toString() {
-				
-		String c = fixLengthString(employeeID, 2) + "  "+ fixLengthString(firstName+" "+lastName, 19) + "  " + fixLengthString(category, 16) + "  " + fixLengthString(salary, 6) + "  " + fixLengthString(gender, 7) + "  " 
-		+ fixLengthString(age, 3) + "  " + fixLengthString(address, 19) + "  " + fixLengthString(eMail, 19) + "  " + fixLengthString(phone, 10) + "  " + fixLengthString(bankName, 11) + "  " + fixLengthString(accountNumber, 11) + "  " + "\n"; 
-				return c;
-		}
-
-	
-	public static String header() {
-			String a = "ID  Name                 Category          Salary Gender    Age  Address             E-mail               Phone       Bank        Account Nr  \n";
-			String b = "-------------------------------------------------------------------------------------------------------------------------------------------------\n";
-			String c = a+b;
-			return c;
-		}
-	private String fixLengthString(String start, int length) {
-		if (start.length() >= length) {
-			return start.substring(0, length);
-		}
-		else {
-			while (start.length() < length) {
-				start += " ";
-			}
-			return start;
-		}
+	public int getAge() {
+		return age;
 	}
-
-	private String fixLengthString(int start, int length) {
-		String startString = String.valueOf(start);
-		return fixLengthString(startString, length);
-	}
-
-	private String fixLengthString(GenderType gender, int length) {
-		String s = gender.toString();
-		return fixLengthString(s, length);
-	}
-	
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Employee other = (Employee) obj;
-		if (employeeID != other.employeeID)
-			return false;
-		if (firstName == null) {
-			if (other.firstName != null)
-				return false;
-		} else if (!firstName.equals(other.firstName))
-			return false;
-		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
-		return true;
-	}
-
 }

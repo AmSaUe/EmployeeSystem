@@ -49,7 +49,7 @@ public class Statistics {
 		for (Employee e : Employee.employee) {
 			totalBonus += e.calculateBonus();
 		}
-		JOptionPane.showMessageDialog(null, "The total annual bonus is " + totalBonus);
+		JOptionPane.showMessageDialog(null, "The total annual bonus is " + String.format("%.2f", totalBonus));
 	}
 
 	public static void femalePercentage() {
