@@ -124,8 +124,8 @@ public class UI {
 			for (Employee j : Employee.employee) {
 				s.append(j.toString());
 			}
-			JOptionPane.showMessageDialog(null, d + s);
-			// System.out.println(d+s);
+//			JOptionPane.showMessageDialog(null, d + s);
+			 System.out.println(d+s);
 			break;
 			}
 		}
